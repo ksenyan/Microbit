@@ -1,0 +1,22 @@
+let ang = 90
+servos.P1.setAngle(90)
+basic.forever(function () {
+    if (ang >= 0 || ang <= 180) {
+        if (input.buttonIsPressed(Button.A)) {
+            servos.P1.setAngle(ang + 7)
+            ang = ang + 7
+        }
+        if (input.buttonIsPressed(Button.B)) {
+            servos.P1.setAngle(ang + -7)
+            ang = ang + -7
+        }
+    }
+    if (ang < 0 || ang > 180) {
+        if (input.buttonIsPressed(Button.A)) {
+            ang = 180
+        }
+        if (input.buttonIsPressed(Button.B)) {
+            ang = 0
+        }
+    }
+})
